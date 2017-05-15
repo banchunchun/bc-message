@@ -3,6 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>bc-message-starter-email</module>
+        <module>bc-message-starter-mq</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -22,6 +23,7 @@
         <java.version>1.8</java.version>
         <commons-collection.version>4.1</commons-collection.version>
         <commons-lang.version>3.5</commons-lang.version>
+        <activemq.version>5.7.0</activemq.version>
     </properties>
 
     <dependencyManagement>
@@ -40,6 +42,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
                 <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-core</artifactId>
+                <version>${activemq.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
