@@ -11,5 +11,5 @@ package com.bc.message.mq.service;
 public interface MessageProducerService {
 
 
-    void sendMessage(T<t> message)
+//    void sendMessage(T<t> message)
 }

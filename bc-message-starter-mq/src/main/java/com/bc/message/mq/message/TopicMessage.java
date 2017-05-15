@@ -11,12 +11,16 @@ import java.io.Serializable;
  * Description:
  * To change this template use File | Settings | File Templates.
  */
-public abstract class TopicMessage implements Serializable{
+public  class TopicMessage extends BaseMessage implements Serializable{
 
     private String topic;
 
-    private String key;
 
+    public String getTopic() {
+        return topic;
+    }
 
-
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
 }

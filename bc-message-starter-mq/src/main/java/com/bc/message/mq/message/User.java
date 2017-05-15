@@ -6,10 +6,19 @@ import java.io.Serializable;
  * Created with IntelliJ IDEA.
  * User: banchun
  * Date:  2017-05-15
- * Time:  下午 5:55.
+ * Time:  下午 9:49.
  * Description:
  * To change this template use File | Settings | File Templates.
  */
-public class QueueMessage extends BaseMessage implements Serializable {
-    private String queue; //队列名称
+public class User implements Serializable {
+
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
