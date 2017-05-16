@@ -49,6 +49,8 @@ public class MessageProducer implements Runnable {
                 sendQueue = session.createQueue(QUEUE);
                 javax.jms.MessageProducer sender = session.createProducer(sendQueue);
                 TextMessage outMessage = session.createTextMessage();
+
+
                 outMessage.setText(new Date() + "现在发送是第" + messageCount + "条消息");
 
                 sender.send(outMessage);

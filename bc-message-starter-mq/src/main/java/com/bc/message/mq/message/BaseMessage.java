@@ -11,7 +11,7 @@ import java.util.HashMap;
  * Description:
  * To change this template use File | Settings | File Templates.
  */
-public abstract class BaseMessage<T> {
+public abstract class BaseMessage<T> implements Serializable{
 
     protected String key; //自定义key
 

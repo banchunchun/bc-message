@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bc-message-starter-mq</artifactId>
+    <artifactId>bc-message-start-mq-consumer</artifactId>
     <packaging>jar</packaging>
 
-    <name>bc-message-starter-mq</name>
+    <name>bc-message-start-mq-consumer</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -19,12 +19,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-core</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

@@ -1,5 +1,6 @@
 package com.bc.message.mq.queue;
 
+import com.bc.message.mq.message.QueueMessage;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
@@ -44,11 +45,18 @@ public class MessageReceiver implements Runnable{
             while (true) {
                 Message message = consumer.receive();
 
-                if (message instanceof TextMessage) {
-                    TextMessage receiveMessage = (TextMessage) message;
+                if (message instanceof ObjectMessage) {
+                    ObjectMessage receiveMessage = (ObjectMessage) message;
+                    if (receiveMessage.getObject() instanceof QueueMessage){
+                        System.out.println(((QueueMessage) receiveMessage.getObject()).getKey());
+                    }
                     System.out.println("我是Receiver,收到消息如下: \r\n"
-                            + receiveMessage.getText());
-                } else {
+                            + receiveMessage);
+                }else if(message instanceof TextMessage){
+                    TextMessage textMessage =(TextMessage) message;
+                    System.out.println("我是Receiver,收到消息如下: \r\n"
+                            + textMessage.getText());
+                }else {
                     session.commit();
                     break;
                 }

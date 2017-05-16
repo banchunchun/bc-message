@@ -4,6 +4,8 @@
     <modules>
         <module>bc-message-starter-email</module>
         <module>bc-message-starter-mq</module>
+        <module>bc-message-start-mq-consumer</module>
+        <module>bc-message-web</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

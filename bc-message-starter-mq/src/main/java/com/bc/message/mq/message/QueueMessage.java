@@ -12,4 +12,13 @@ import java.io.Serializable;
  */
 public class QueueMessage extends BaseMessage implements Serializable {
     private String queue; //队列名称
+
+
+    public String getQueue() {
+        return queue;
+    }
+
+    public void setQueue(String queue) {
+        this.queue = queue;
+    }
 }

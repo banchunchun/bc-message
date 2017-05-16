@@ -2,6 +2,7 @@ package com.bc.message.mq.start;
 
 import com.bc.message.mq.message.TopicMessage;
 import com.bc.message.mq.message.User;
+import com.bc.message.mq.queue.MessageReceiver;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,19 +15,16 @@ import com.bc.message.mq.message.User;
 public class MessageStarter {
 
     public static void main(String[] args) {
-        final String QUEUE = "my-first-queue";
+        final String QUEUE = "my-queue";
 
 
-//        String url = "tcp://localhost:61616";
-//        String user = "admin";
-//        String password = "admin";
-//        new Thread(new MessageReceiver(QUEUE,url,user,password), "Name-Receiver").start();
+        String url = "tcp://localhost:61616";
+        String user = "admin";
+        String password = "admin";
+        new Thread(new MessageReceiver(QUEUE,url,user,password), "Name-Receiver").start();
 //        new Thread(new MessageProducer(QUEUE,url,user,password), "Name-Sender").start();
 
-        TopicMessage message  = new TopicMessage();
 
-        User user = new User();
-        user.setName("123");
 
 
     }

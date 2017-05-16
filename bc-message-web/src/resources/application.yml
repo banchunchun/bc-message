@@ -1,0 +1,11 @@
+server:
+  port: 8888
+  context-path: /
+
+message:
+  mq:
+    url: tcp://localhost:61616
+    username: admin
+    password: admin
+    queue: my-queue
+    topic:
