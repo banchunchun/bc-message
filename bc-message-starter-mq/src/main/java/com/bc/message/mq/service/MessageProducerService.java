@@ -12,6 +12,10 @@ import com.bc.message.mq.message.BaseMessage;
  */
 public interface MessageProducerService {
 
+    /**
+     * 发送普通文本消息
+     * @param text
+     */
     void sendMessage(String text);
 
     /**

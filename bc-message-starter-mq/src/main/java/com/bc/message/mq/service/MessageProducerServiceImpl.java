@@ -3,6 +3,7 @@ package com.bc.message.mq.service;
 import com.bc.message.mq.message.BaseMessage;
 import com.bc.message.mq.message.MQFactory;
 import com.bc.message.mq.message.QueueMessage;
+import org.apache.activemq.ScheduledMessage;
 
 import javax.jms.*;
 
@@ -21,7 +22,10 @@ public class MessageProducerServiceImpl implements MessageProducerService {
     public MessageProducerServiceImpl(MQFactory factory){
         this.factory = factory;
     }
-
+    /**
+     * 发送普通文本消息
+     * @param text
+     */
     @Override
     public void sendMessage(String text) {
         Message message = null;
@@ -73,6 +77,16 @@ public class MessageProducerServiceImpl implements MessageProducerService {
      */
     @Override
     public void sendDelayMessage(BaseMessage message, Long delay) {
+        ObjectMessage msg = null;
+        try {
+            msg = this.factory.getSession().createObjectMessage();
+            msg.setObject(message);
+            msg.setLongProperty(ScheduledMessage.AMQ_SCHEDULED_DELAY,delay);
+            this.factory.getProducer().send(msg);
+            this.factory.getSession().commit();
+        } catch (JMSException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -84,6 +98,15 @@ public class MessageProducerServiceImpl implements MessageProducerService {
      */
     @Override
     public void sendScheduleMessage(BaseMessage message, String cron) {
-
+        ObjectMessage msg = null;
+        try {
+            msg = this.factory.getSession().createObjectMessage();
+            msg.setObject(message);
+            msg.setStringProperty(ScheduledMessage.AMQ_SCHEDULED_CRON,cron);
+            this.factory.getProducer().send(msg);
+            this.factory.getSession().commit();
+        } catch (JMSException e) {
+            e.printStackTrace();
+        }
     }
 }

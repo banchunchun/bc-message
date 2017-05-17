@@ -39,8 +39,10 @@ public class MessageController {
 
         messageProducerService.sendMessage(queueMessage);
 
-       for (int i = 1;i < 100 ;i ++){
-           messageProducerService.sendMessage("i" + i);
-       }
+        messageProducerService.sendDelayMessage(queueMessage,120000L);
+//        messageProducerService.sendScheduleMessage(queueMessage,"");
+//       for (int i = 1;i < 100 ;i ++){
+//           messageProducerService.sendMessage("i" + i);
+//       }
     }
 }
